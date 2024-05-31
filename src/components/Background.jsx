@@ -13,10 +13,12 @@ export const Background = () => {
   const tl = useRef();
 
   useFrame(() => {
-    tl.current.progress(data.scroll.current);
+    if (tl.current && data.scroll) {
+      tl.current.progress(data.scroll.current);
+    }
     material.current.color = new THREE.Color(color.current.color);
   });
-
+  
   useEffect(() => {
     tl.current = gsap.timeline();
     tl.current.to(color.current, {
