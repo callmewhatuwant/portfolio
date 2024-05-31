@@ -1,0 +1,123 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+  }
+  :root {  
+  --white: #ffffff;
+  --black: #000;
+  --grey : #D3D3D3;
+  --facebook: #3b5999;
+  --twitter: #55acee;
+  --instagram: #e4405f;
+  --apple: #131418;
+  }
+  
+  body { 
+  background: var(--white);
+  }
+
+
+  .custom-align-left {
+    justify-content: flex-start; /* Align contents to the left */
+    margin-left: -200px; /* Adjust as needed */
+  }
+  
+  ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+   
+    position: relative;
+  }
+  
+  ul li {
+    list-style: none;
+    margin: 20px 0;
+  }
+  
+ 
+  ul li a .fab{
+  font-size: 40px;
+  color: var(--black);
+  line-height: 80px;
+  transition: .5s;
+  }
+  ul li a{
+  position: relative;
+  display: block;
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  background-color: #808080;
+  transform: perspective(1000px) rotate(-30deg) skew(25deg) translate(0, 0);
+  transition: .5s;
+  box-shadow: -30px 30px 10px rgba(0,0,0,.5);
+  }
+  ul li a::before{
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: -20px;
+  height: 100%;
+  width: 20px;
+  background-color: #93a092;
+  transition: .5s;
+  transform: rotate(0deg) skewY(-45deg);
+  }
+  ul li a::after{
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: -10px;
+  height: 20px;
+  width: 100%;
+  background-color: var(--grey);
+  transition: .5s;
+  transform: rotate(0deg) skewX(-45deg);
+  }
+  ul li a:hover{
+  transform: perspective(1000px) rotate(-30deg) skew(25deg) translate(20px, -20px);
+  box-shadow: -50px 50px 50px rgba(0,0,0,.5);
+  }
+  ul li:hover .fab{
+  color: var(--white);
+  }
+  ul li:hover:nth-child(1) a{
+  background: var(--facebook);
+  }
+  ul li:hover:nth-child(1) a::before{
+  background: #5e77ab;
+  }
+  ul li:hover:nth-child(1) a::after{
+  background: #4c68a2;
+  }
+  ul li:hover:nth-child(2) a{
+  background: var(--instagram);
+  }
+  ul li:hover:nth-child(2) a::before{
+  background: #e4506b;
+  }
+  ul li:hover:nth-child(2) a::after{
+  background: #e76a7a;
+  }
+  ul li:hover:nth-child(3) a{
+  background: var(--twitter);
+  }
+  ul li:hover:nth-child(3) a::before{
+  background: #64b2ee;
+  }
+  ul li:hover:nth-child(3) a::after{
+  background: #73baf0;
+  }
+  ul li:hover:nth-child(4) a{
+  background: var(--apple);
+  }
+  ul li:hover:nth-child(4) a::before{
+  background: #171717;
+  }
+  ul li:hover:nth-child(4) a::after{
+  background: #2e2e2e;
+  }
+  
