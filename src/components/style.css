@@ -163,7 +163,7 @@ ul li:hover:nth-child(4) a::after {
 @media (min-width: 1291px) {
   .custom-align-left {
    
-    margin-left: calc(-60px + ((50vw - 8000px) / 80)); /* Adjust as needed */
+    margin-left: calc(-70px + ((50vw - 8000px) / 80)); /* Adjust as needed */
   }
 }
 
@@ -173,8 +173,7 @@ ul li:hover:nth-child(4) a::after {
     justify-content: left;
     position: fixed;
     bottom: 1.5%; /* Position icons at the bottom */
-    
-    left: 60px;
+    left: 5vh;
     
   }
 
