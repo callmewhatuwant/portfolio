@@ -340,9 +340,7 @@ const ContactSection = () => {
           </div>
         </div>
         <div
-            className="items-start md:block md:w-1/2 mt-8 md:mt-0 custom-align-left"
-            
-           
+            className="flex-start md:block md:w-1/2 mt-8 md:mt-0 custom-align-left "          
           >
             <SocialMediaIcons />
           </div>

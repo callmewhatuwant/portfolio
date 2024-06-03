@@ -169,16 +169,18 @@ ul li:hover:nth-child(4) a::after {
 
 
 @media (min-width: 100px) and (max-width: 1000px) {
-  ul {
-    justify-content: flex-start;
+  .custom-align-left ul {
+    justify-content: center;
     position: fixed;
     bottom: 40px; /* Position icons at the bottom */
     left: 0;
     right: 0; /* Stretch icons to full width */
-    width: 100%;
+    
     justify-content: center; /* Center the icons */
-    margin: 0; /* Remove margin */
+   
   }
+
+  
 
 
   ul {
