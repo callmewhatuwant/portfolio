@@ -20,7 +20,7 @@ export const Experience = (props) => {
   const { viewport } = useThree();
   const data = useScroll();
 
-  const isMobile = window.innerWidth < 768;
+  const isMobile = window.innerWidth < 1000;
   const responsiveRatio = viewport.width / 12 ;
   const officeScaleRatio = Math.max (0.5, Math.min( 0.9 * responsiveRatio, 0.9));
 

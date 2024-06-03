@@ -6,6 +6,10 @@ import { useForm, ValidationError } from '@formspree/react';
 import SocialMediaIcons from "./Social";
 
 
+import { useFrame, useThree } from "@react-three/fiber";
+import { animate, useMotionValue } from "framer-motion";
+
+
 const Section = (props) => {
   const { children, mobileTop } = props;
 
@@ -36,7 +40,9 @@ const Section = (props) => {
 
 export const Interface = (props) => {
   const {setSection} = props;
+
   return (
+    
     <div className="flex flex-col items-center w-screen">
       <AboutSection setSection={setSection}/>
       <SkillsSection />
@@ -47,6 +53,7 @@ export const Interface = (props) => {
 };
 
 const AboutSection = (props) => {
+  
   const {setSection} = props;
   return (
     <Section mobileTop>
@@ -267,12 +274,19 @@ const ProjectsSection = () => {
 
 const ContactSection = () => {
   const [state, handleSubmit] = useForm("xdoqvqyg");
+
+  const { viewport } = useThree();
+  
+
+  const isMobile = window.innerWidth < 1500;
+  const responsiveRatio = viewport.width / 12 ;
+  const officeScaleRatio = Math.max (0.5, Math.min( 0.9 * responsiveRatio, 0.9));
   return (
     <Section>
-      <div className="flex flex-col md:flex-row items-start md:items-center w-full">
+      <div className="md:flex flex-col md:flex-row items-start md:items-center w-full">
         <div className="md:w-1/2">
           <h2 className="text-3xl md:text-5xl font-bold">Contact me</h2>
-          <div className="mt-8 p-8 rounded-md bg-white bg-opacity-50 w-80 md:w-96  max-w-full">
+          <div className="mt-8 p-8 rounded-md bg-white bg-opacity-50 w-96  max-w-full">
             {state.succeeded ? (
               <p className="text-gray-900 text-center">Thanks for your message!</p>
             ) : (
@@ -332,9 +346,13 @@ const ContactSection = () => {
           )}
           </div>
         </div>
-        <div className=" items-start hidden md:block md:w-1/2 mt-8 md:mt-0 custom-align-left"> 
-          <SocialMediaIcons />
-        </div>
+        <div
+            className="items-start md:block md:w-1/2 mt-8 md:mt-0 custom-align-left"
+            
+           
+          >
+            <SocialMediaIcons />
+          </div>
       </div>
     </Section>
   );

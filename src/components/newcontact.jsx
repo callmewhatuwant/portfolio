@@ -3,9 +3,9 @@ const ContactSection = () => {
   return (
     <Section>
       <div className="flex flex-col md:flex-row items-start md:items-center w-full">
-        <div className="md:w-1/2">
+        <div>
           <h2 className="text-3xl md:text-5xl font-bold">Contact me</h2>
-          <div className="mt-8 p-8 rounded-md bg-white bg-opacity-50 md:w-96  max-w-full">
+          <div className="mt-8 p-8 rounded-md bg-white bg-opacity-50 w-96 max-w-full">
             {state.succeeded ? (
               <p className="text-gray-900 text-center">Thanks for your message!</p>
             ) : (
@@ -17,7 +17,6 @@ const ContactSection = () => {
                 type="text"
                 name="name"
                 id="name"
-                autoComplete="name"
                 className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 p-3"
               />
               <label
@@ -30,7 +29,6 @@ const ContactSection = () => {
                 type="email"
                 name="email"
                 id="email"
-                autoComplete="email"
                 className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 p-3"
               />
               <ValidationError
@@ -40,7 +38,7 @@ const ContactSection = () => {
                 errors={state.errors}
               />
               <label
-                htmlFor="message"
+                htmlFor="email"
                 className="font-medium text-gray-900 block mb-1 mt-8"
               >
                 Message
@@ -52,12 +50,11 @@ const ContactSection = () => {
               />
               <ValidationError
                 className="mt-1 text-red-500"
-                field="message"
                 errors={state.errors}
               />
               <button
                 disabled={state.submitting}
-                className="bg-indigo-600 text-white py-4 px-8 rounded-lg font-bold text-lg mt-16"
+                className="bg-indigo-600 text-white py-4 px-8 rounded-lg font-bold text-lg mt-16 "
               >
                 Submit
               </button>
@@ -65,7 +62,7 @@ const ContactSection = () => {
           )}
           </div>
         </div>
-        <div className=" items-start hidden md:block md:w-1/2 mt-8 md:mt-0 custom-align-left"> 
+          <div className=" items-start md:block md:w-1/2 mt-8 md:mt-0 custom-align-left"> 
           <SocialMediaIcons />
         </div>
       </div>
