@@ -274,13 +274,6 @@ const ProjectsSection = () => {
 
 const ContactSection = () => {
   const [state, handleSubmit] = useForm("xdoqvqyg");
-
-  const { viewport } = useThree();
-  
-
-  const isMobile = window.innerWidth < 1500;
-  const responsiveRatio = viewport.width / 12 ;
-  const officeScaleRatio = Math.max (0.5, Math.min( 0.9 * responsiveRatio, 0.9));
   return (
     <Section>
       <div className="md:flex flex-col md:flex-row items-start md:items-center w-full">
