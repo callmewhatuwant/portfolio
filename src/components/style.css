@@ -1,0 +1,259 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --white: #ffffff;
+  --black: #000;
+  --grey: #D3D3D3;
+  --facebook: #3b5999;
+  --twitter: #55acee;
+  --instagram: #e4405f;
+  --apple: #131418;
+}
+
+body {
+  background: var(--white);
+}
+
+.custom-align-left {
+  justify-content: flex-start; /* Align contents to the left */
+  margin-left: -200px; /* Adjust as needed */
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column; /* Vertical by default */
+  position: relative;
+  
+}
+
+ul li {
+  list-style: none;
+  margin: 20px 0;
+}
+
+ul li a .fab {
+  font-size: 40px;
+  color: var(--white); /* Change color to white */
+  line-height: 80px;
+  transition: .5s;
+}
+
+ul li a {
+  position: relative;
+  display: block;
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  background-color: #808080;
+  transform: perspective(1000px) rotate(-30deg) skew(25deg) translate(0, 0);
+  transition: .5s;
+  box-shadow: -30px 30px 10px rgba(0, 0, 0, .5);
+}
+
+ul li a::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: -20px;
+  height: 100%;
+  width: 20px;
+  background-color: #93a092;
+  transition: .5s;
+  transform: rotate(0deg) skewY(-45deg);
+}
+
+ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: -10px;
+  height: 20px;
+  width: 100%;
+  background-color: var(--grey);
+  transition: .5s;
+  transform: rotate(0deg) skewX(-45deg);
+}
+
+ul li a:hover {
+  transform: perspective(1000px) rotate(-30deg) skew(25deg) translate(20px, -20px);
+  box-shadow: -50px 50px 50px rgba(0, 0, 0, .5);
+}
+
+ul li:hover .fab {
+  color: var(--white);
+}
+
+ul li:hover:nth-child(1) a {
+  background: var(--facebook);
+}
+
+ul li:hover:nth-child(1) a::before {
+  background: #5e77ab;
+}
+
+ul li:hover:nth-child(1) a::after {
+  background: #4c68a2;
+}
+
+ul li:hover:nth-child(2) a {
+  background: var(--instagram);
+}
+
+ul li:hover:nth-child(2) a::before {
+  background: #e4506b;
+}
+
+ul li:hover:nth-child(2) a::after {
+  background: #e76a7a;
+}
+
+ul li:hover:nth-child(3) a {
+  background: var(--twitter);
+}
+
+ul li:hover:nth-child(3) a::before {
+  background: #64b2ee;
+}
+
+ul li:hover:nth-child(3) a::after {
+  background: #73baf0;
+}
+
+ul li:hover:nth-child(4) a {
+  background: var(--apple);
+}
+
+ul li:hover:nth-child(4) a::before {
+  background: #171717;
+}
+
+ul li:hover:nth-child(4) a::after {
+  background: #2e2e2e;
+}
+
+@media (min-width: 1001px) and (max-width: 1090px) {
+  .custom-align-left {
+   
+    margin-left: -50px;
+  }
+}
+
+@media (min-width: 1091px) and (max-width: 1190px) {
+  .custom-align-left {
+   
+    margin-left: -80px;
+  }
+}
+
+@media (min-width: 1191px) and (max-width: 1290px) {
+  .custom-align-left {
+   
+    margin-left: -90px;
+  }
+}
+
+
+
+@media (min-width: 1291px) {
+  .custom-align-left {
+   
+    margin-left: calc(-70px + ((50vw - 8000px) / 80)); /* Adjust as needed */
+  }
+}
+
+
+@media (min-width: 100px) and (max-width: 1000px) {
+  .custom-align-left ul {
+    justify-content: left;
+    position: fixed;
+    bottom: 1.5%; /* Position icons at the bottom */
+    left: 5vh;
+    
+  }
+
+  
+
+
+  ul {
+    flex-direction: row; /* Change to horizontal for mobile */
+    justify-content: center; /* Center the icons */
+  }
+
+  ul li {
+    margin: 0 15px; /* Adjust margin for mobile */
+  }
+
+  
+ul li a .fab {
+  font-size: 30px;
+  color: var(--white); /* Change color to white */
+  line-height: 50px;
+}
+
+  ul li a {
+    position: relative;
+    display: block;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    transform: perspective(1000px) rotate(-30deg) skew(0deg) translate(0, 0); /* Adjust rotation for horizontal layout */
+    box-shadow: none; /* Adjust shadow for mobile */
+    color: var(--white); /* Change color to white */
+  }
+
+  /* Farben für mobile Geräte */
+  ul li:nth-child(1) a {
+    background: var(--facebook);
+  }
+
+  ul li:nth-child(1) a::before {
+    background: #5e77ab;
+  }
+
+  ul li:nth-child(1) a::after {
+    background: #4c68a2;
+  }
+
+  ul li:nth-child(2) a {
+    background: var(--instagram);
+  }
+
+  ul li:nth-child(2) a::before {
+    background: #e4506b;
+  }
+
+  ul li:nth-child(2) a::after {
+    background: #e76a7a;
+  }
+
+  ul li:nth-child(3) a {
+    background: var(--twitter);
+  }
+
+  ul li:nth-child(3) a::before {
+    background: #64b2ee;
+  }
+
+  ul li:nth-child(3) a::after {
+    background: #73baf0;
+  }
+
+  ul li:nth-child(4) a {
+    background: var(--apple);
+  }
+
+  ul li:nth-child(4) a::before {
+    background: #171717;
+  }
+
+  ul li:nth-child(4) a::after {
+    background: #2e2e2e;
+  }
+
+}
