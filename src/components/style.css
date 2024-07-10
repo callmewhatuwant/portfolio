@@ -8,8 +8,8 @@
   --white: #ffffff;
   --black: #000;
   --grey: #D3D3D3;
-  --facebook: #3b5999;
-  --twitter: #22314e;
+  --linkedin: #3b5999;
+  --github: #22314e;
   --instagram: #e4405f;
   --apple: #131418;
 }
@@ -90,7 +90,7 @@ ul li:hover .fab {
 }
 
 ul li:hover:nth-child(1) a {
-  background: var(--facebook);
+  background: var(--linkedin);
 }
 
 ul li:hover:nth-child(1) a::before {
@@ -114,7 +114,7 @@ ul li:hover:nth-child(2) a::after {
 }
 
 ul li:hover:nth-child(3) a {
-  background: var(--twitter);
+  background: var(--github);
 }
 
 ul li:hover:nth-child(3) a::before {
@@ -209,7 +209,7 @@ ul li a .fab {
 
   /* Farben für mobile Geräte */
   ul li:nth-child(1) a {
-    background: var(--facebook);
+    background: var(--linkedin);
   }
 
   ul li:nth-child(1) a::before {
@@ -233,7 +233,7 @@ ul li a .fab {
   }
 
   ul li:nth-child(3) a {
-    background: var(--twitter);
+    background: var(--github);
   }
 
   ul li:nth-child(3) a::before {
