@@ -9,7 +9,7 @@
   --black: #000;
   --grey: #D3D3D3;
   --facebook: #3b5999;
-  --twitter: #55acee;
+  --twitter: #22314e;
   --instagram: #e4405f;
   --apple: #131418;
 }
@@ -118,11 +118,11 @@ ul li:hover:nth-child(3) a {
 }
 
 ul li:hover:nth-child(3) a::before {
-  background: #64b2ee;
+  background: #22365d;
 }
 
 ul li:hover:nth-child(3) a::after {
-  background: #73baf0;
+  background: #22314e;
 }
 
 ul li:hover:nth-child(4) a {
@@ -237,11 +237,11 @@ ul li a .fab {
   }
 
   ul li:nth-child(3) a::before {
-    background: #64b2ee;
+    background: #22365d;
   }
 
   ul li:nth-child(3) a::after {
-    background: #73baf0;
+    background: #22314e;
   }
 
   ul li:nth-child(4) a {

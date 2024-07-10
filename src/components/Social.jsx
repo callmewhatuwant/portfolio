@@ -8,9 +8,9 @@ const SocialMediaIcons = () => {
        
 
       <ul>
-        <li><a href="https://www.facebook.com" target="_blank"><i className="fab fa-facebook-f"></i></a></li>
+        <li><a href="https://de.linkedin.com/" target="_blank"><i className="fab fa-linkedin"></i></a></li>
         <li><a href="https://www.instagram.com" target="_blank"><i className="fab fa-instagram"></i></a></li>
-        <li><a href="https://www.twitter.com" target="_blank"><i className="fab fa-twitter"></i></a></li>
+        <li><a href="https://github.com/callmewhatuwant/" target="_blank"><i className="fab fa-github-square"></i></a></li>
         <li><a href="https://www.apple.com" target="_blank"><i className="fab fa-apple"></i></a></li>
       </ul>
     </div>
