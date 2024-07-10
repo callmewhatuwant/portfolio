@@ -8,34 +8,34 @@ import { useEffect, useRef } from "react";
 
 export const projects = [
   {
-    title: "Wawatmos",
-    url: "https://r3f-wawatmos-final.vercel.app/",
-    image: "projects/wawatmos.jpg",
-    description: "Recreating the Atmos Awwwards website with React Three Fiber",
+    title: "Soon",
+    url: "https://github.com/callmewhatuwant",
+    image: "projects/soon.jpg",
+    description: "Check out my GitHub account in the meantime.",
   },
   {
-    title: "Portfolio Baking",
-    url: "https://www.youtube.com/watch?v=YkHqpqJgLKw",
+    title: "Soon",
+    url: "https://github.com/callmewhatuwant",
+    image: "projects/soon.jpg",
+    description: "Check out my GitHub account in the meantime.",
+  },
+  {
+    title: "Portfolio",
+    url: "https://github.com/callmewhatuwant/portfolio/tree/main",
     image: "projects/baking.jpg",
-    description: "Learn how to bake a 3D model with Blender and use it in r3f",
+    description: "Check out the code of my portfolio.",
   },
   {
-    title: "3D Avatar",
-    url: "https://www.youtube.com/watch?v=pGMKIyALcK0",
-    image: "projects/avatar.jpg",
-    description: "Learn how to use ReadyPlayerMe to create a 3D avatar",
+    title: "Soon",
+    url: "https://github.com/callmewhatuwant",
+    image: "projects/soon.jpg",
+    description: "Check out my GitHub account in the meantime.",
   },
   {
-    title: "Kanagame",
-    url: "https://www.youtube.com/watch?v=zwNF1-lsia8",
-    image: "projects/kanagame.jpg",
-    description: "Use React Three Fiber to create a 3D game",
-  },
-  {
-    title: "Loader",
-    url: "https://www.youtube.com/watch?v=L12wIvuZTOY",
-    image: "projects/loader.jpg",
-    description: "Create a loading screen for your r3f projects",
+    title: "Soon",
+    url: "https://github.com/callmewhatuwant",
+    image: "projects/soon.jpg",
+    description: "Check out my GitHub account in the meantime.",
   },
 ];
 
