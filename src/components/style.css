@@ -11,7 +11,7 @@
   --linkedin: #3b5999;
   --github: #22314e;
   --instagram: #e4405f;
-  --apple: #131418;
+  --docker: #1D63ED;
 }
 
 body {
@@ -126,15 +126,15 @@ ul li:hover:nth-child(3) a::after {
 }
 
 ul li:hover:nth-child(4) a {
-  background: var(--apple);
+  background: var(--docker);
 }
 
 ul li:hover:nth-child(4) a::before {
-  background: #171717;
+  background: #215ed7;
 }
 
 ul li:hover:nth-child(4) a::after {
-  background: #2e2e2e;
+  background: #1D63ED;
 }
 
 @media (min-width: 1001px) and (max-width: 1090px) {
@@ -245,7 +245,7 @@ ul li a .fab {
   }
 
   ul li:nth-child(4) a {
-    background: var(--apple);
+    background: var(--docker);
   }
 
   ul li:nth-child(4) a::before {
