@@ -73,9 +73,13 @@ const AboutSection = (props) => {
           delay: 1.5,
         }}
       >
-        I am a backend developer wich also likes frontend
+        I am a system engineer who also enjoys
+        <br /> 
+        frontend development.
         <br />
-        Learn how to build containered apps
+        Check out my portfolio. ↓
+        <br />
+        I will update it soon with new projects.
       </motion.p>
       <motion.button
         onClick={() => setSection(3)}
