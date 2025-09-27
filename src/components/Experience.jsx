@@ -48,9 +48,9 @@ export const Experience = (props) => {
       rx: -Math.PI,
       ry: 1.1073981633974483,
       rz: Math.PI,
-      sx: officeScaleRatio,
-      sy: officeScaleRatio,
-      sz: officeScaleRatio,
+      sx: officeScaleRatio* 1.1,
+      sy: officeScaleRatio* 1.1,
+      sz: officeScaleRatio* 1.1,
     };
 
     if (section === 1) {
@@ -181,7 +181,7 @@ export const Experience = (props) => {
           name="CharacterSpot"
           position={[-0.23, 0.183, -0.65]}
           rotation={[-Math.PI, 0.322, -Math.PI]}
-          scale={1.05}
+          scale={1.5}
         />
       </a.group>
 

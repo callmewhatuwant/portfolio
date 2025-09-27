@@ -30,7 +30,7 @@ export function Office(props) {
     opacity: 0.42,
   });
 
-  // ersetzt motion.group/mesh: ein gemeinsames Spring für alle scale-Animationen
+
   const { s } = useSpring({
     s: section === 0 ? 1 : 0,
     config: { tension: 280, friction: 26 },
