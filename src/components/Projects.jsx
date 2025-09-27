@@ -1,8 +1,7 @@
 import { Image, Text } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import { animate, useMotionValue } from "framer-motion";
-
-import { motion } from "framer-motion-3d";
+import { a, useSpring } from "@react-spring/three";
 import { atom, useAtom } from "jotai";
 import { useEffect, useRef } from "react";
 
@@ -39,9 +38,7 @@ export const projects = [
   },
 ];
 
-const Project = (props) => {
-  const { project, highlighted } = props;
-
+const Project = ({ project, highlighted, ...props }) => {
   const background = useRef();
   const bgOpacity = useMotionValue(0.4);
 
@@ -50,7 +47,9 @@ const Project = (props) => {
   }, [highlighted]);
 
   useFrame(() => {
-    background.current.material.opacity = bgOpacity.get();
+    if (background.current) {
+      background.current.material.opacity = bgOpacity.get();
+    }
   });
 
   return (
@@ -71,8 +70,8 @@ const Project = (props) => {
       />
       <Text
         maxWidth={2}
-        anchorX={"left"}
-        anchorY={"top"}
+        anchorX="left"
+        anchorY="top"
         fontSize={0.2}
         position={[-1, -0.4, 0]}
       >
@@ -99,21 +98,29 @@ export const Projects = () => {
 
   return (
     <group position-y={-viewport.height * 2 + 1}>
-      {projects.map((project, index) => (
-        <motion.group
-          key={"project_" + index}
-          position={[index * 2.5, 0, -3]}
-          animate={{
-            x: 0 + (index - currentProject) * 2.5,
-            y: currentProject === index ? 0 : -0.1,
-            z: currentProject === index ? -2 : -3,
-            rotateX: currentProject === index ? 0 : -Math.PI / 3,
-            rotateZ: currentProject === index ? 0 : -0.1 * Math.PI,
-          }}
-        >
-          <Project project={project} highlighted={index === currentProject} />
-        </motion.group>
-      ))}
+      {projects.map((project, index) => {
+        const spring = useSpring({
+          x: (index - currentProject) * 2.5,
+          y: currentProject === index ? 0 : -0.1,
+          z: currentProject === index ? -2 : -3,
+          rotX: currentProject === index ? 0 : -Math.PI / 3,
+          rotZ: currentProject === index ? 0 : -0.1 * Math.PI,
+          config: { tension: 220, friction: 24, mass: 2.0 }
+        });
+
+        return (
+          <a.group
+            key={`project_${index}`}
+            position-x={spring.x}
+            position-y={spring.y}
+            position-z={spring.z}
+            rotation-x={spring.rotX}
+            rotation-z={spring.rotZ}
+          >
+            <Project project={project} highlighted={index === currentProject} />
+          </a.group>
+        );
+      })}
     </group>
   );
 };
