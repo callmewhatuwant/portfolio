@@ -25,10 +25,10 @@ export const projects = [
     description: "Check out the code of my portfolio.",
   },
   {
-    title: "Soon",
-    url: "https://github.com/callmewhatuwant",
-    image: "projects/soon.jpg",
-    description: "Check out my GitHub account in the meantime.",
+    title: "Age Operator",
+    url: "https://github.com/callmewhatuwant/sealed-age-operator",
+    image: "projects/secret.jpg",
+    description: "Kubernetes operator that decrypts age-encrypted secrets",
   },
   {
     title: "Soon",
