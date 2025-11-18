@@ -26,7 +26,7 @@ export const projects = [
   },
   {
     title: "Age Operator",
-    url: "https://github.com/callmewhatuwant/sealed-age-operator",
+    url: "https://age-secrets.com/",
     image: "projects/secret.jpg",
     description: "Kubernetes operator that decrypts age-encrypted secrets",
   },
