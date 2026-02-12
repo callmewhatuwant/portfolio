@@ -40,7 +40,7 @@ COPY --from=builder /app/dist /home/static
 EXPOSE 3000
 
 # We use a nonroot user.
-# static user = 1000:1000
+# static = 1000:1000
 USER static
 
 # Now start busybox.
