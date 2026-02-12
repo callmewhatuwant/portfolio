@@ -44,8 +44,8 @@ COPY --from=builder /app/dist /usr/share/nginx/html
 # Check wich port ur webserver does listen on.
 EXPOSE 8080
 
-# We use the nonroot user.
-# nginx user = 101:101
+# We use a nonroot user.
+# nginx = 101:101
 USER nginx
 
 # Now start nginx.
