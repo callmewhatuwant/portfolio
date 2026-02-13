@@ -1,5 +1,5 @@
 # This Dockerfile builds and packages a Node.js application using Nginx to serve the static files.
-# We buil a minimal production image by using a small webserver image.
+# A multi-stage build is used to keep the final image small.
 FROM alpine:3.23.0 AS builder
 
 # Install dependencies.
