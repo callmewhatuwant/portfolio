@@ -1,8 +1,6 @@
 # This Dockerfile builds and packages a Node.js application using Nginx to serve the static files.
-# It supports multi-platform builds and ensures a minimal production image by using a small webserver image.
+# We buil a minimal production image by using a small webserver image.
 FROM alpine:3.23.0 AS builder
-ARG TARGETOS
-ARG TARGETARCH
 
 # Install dependencies.
 RUN apk add --no-cache \
