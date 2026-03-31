@@ -58,7 +58,7 @@ const AboutSection = (props) => {
         <span className="bg-white px-1 italic">Nick Georgi</span>
       </h1>
       <motion.p
-        className="text-lg mt-4"
+        className="text-lg mt-4 max-w-md"
         initial={{
           opacity: 0,
           y: 5,
@@ -72,18 +72,10 @@ const AboutSection = (props) => {
           delay: 1.5,
         }}
       >
-      I'm a system engineer with a passion for frontend
-      <br />
-      development. My work mainly focuses on Kubernetes 
-      <br />
-      and automation using Terraform / Ansible.
-      <br />
-      Along the way, I've gained experience
-      <br />
-      working with various Linux distributions.
-      <br />
+      I'm a system engineer with a passion for frontend development. 
+      My work mainly focuses on Kubernetes and automation using Terraform / Ansible.
+      Along the way, I've gained experience working with various Linux distributions.
       Feel free to explore the portfolio below ↓
-      <br />
       More projects are coming soon.
       </motion.p>
       <motion.button
@@ -113,15 +105,15 @@ const skills = [
 
   {
     title: "Kubernetes",
-    level: 80,
+    level: 90,
   },
   {
     title: "Terraform",
-    level: 70,
+    level: 80,
   },
   {
     title: "Ansible",
-    level: 60,
+    level: 75,
   },
   {
     title: "GO",
@@ -145,7 +137,7 @@ const skills = [
   },
   {
     title: "3D Modeling",
-    level: 40,
+    level: 45,
   },
 ];
 const languages = [
