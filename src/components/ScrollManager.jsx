@@ -15,7 +15,7 @@ export const ScrollManager = (props) => {
 
   useEffect(() => {
     gsap.to(data.el, {
-      duration: 2,
+      duration: 4,
       scrollTop: section * data.el.clientHeight,
       onStart: () => {
         isAnimating.current = true;
