@@ -1,62 +1,41 @@
-import { useScroll } from "@react-three/drei";
+import { useRef, useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
-import { gsap } from "gsap";
-import { useEffect, useRef } from "react";
-import * as THREE from "three";
+import { useGLTF, useAnimations } from "@react-three/drei";
 
-export const ScrollManager = (props) => {
-  const { section, onSectionChange } = props;
-
-  const data = useScroll();
-
-  const lastScroll = useRef(0);
-  const scroll = useRef(0);
-  const isAnimating = useRef(false);
-
-  data.fill.classList.add("top-0");
-  data.fill.classList.add("absolute");
+export const Character = ({ animationName }) => {
+  const group = useRef();
+  const { scene, animations } = useGLTF("/mixamo_character.glb");
+  const { actions, mixer } = useAnimations(animations, group);
+  const current = useRef(null);
 
   useEffect(() => {
-    gsap.to(data.el, {
-      duration: 1.5,
-      scrollTop: section * data.el.clientHeight,
-      ease: "power2.out",
-      onStart: () => {
-        isAnimating.current = true;
-      },
-      onComplete: () => {
-        isAnimating.current = false;
-      },
+    Object.values(actions).forEach((action) => {
+      action.enabled = true;
+      action.setEffectiveWeight(1);
+      action.timeScale = 0.7;
     });
-  }, [section]);
 
-  useFrame(() => {
-    scroll.current = THREE.MathUtils.lerp(
-      scroll.current,
-      data.scroll.current,
-      0.1
-    );
-
-    if (isAnimating.current) {
-      lastScroll.current = scroll.current;
-      return;
+    if (animationName && actions[animationName]) {
+      actions[animationName].reset().fadeIn(0.5).play();
+      current.current = animationName;
     }
+  }, [actions, animationName]);
 
-    const curSection = Math.floor(scroll.current * data.pages);
-
-    if (scroll.current > lastScroll.current + 0.01 && curSection === 0) {
-      onSectionChange(1);
-    }
-
-    if (
-      scroll.current < lastScroll.current - 0.01 &&
-      scroll.current < 1 / (data.pages - 1)
-    ) {
-      onSectionChange(0);
-    }
-
-    lastScroll.current = scroll.current;
+  useFrame((state, delta) => {
+    mixer.update(delta);
   });
 
-  return null;
+  useEffect(() => {
+    if (!animationName || !actions[animationName]) return;
+    if (current.current === animationName) return;
+
+    if (current.current && actions[current.current]) {
+      actions[current.current].fadeOut(0.5);
+    }
+
+    actions[animationName].reset().fadeIn(0.5).play();
+    current.current = animationName;
+  }, [animationName, actions]);
+
+  return <primitive ref={group} object={scene} />;
 };
