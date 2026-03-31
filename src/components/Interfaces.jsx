@@ -72,11 +72,13 @@ const AboutSection = (props) => {
           delay: 1.5,
         }}
       >
-      I'm a system engineer with a passion for frontend development.
+      I'm a system engineer with a passion for frontend
       <br />
-      My work mainly focuses on Kubernetes and automation 
+      development. My work mainly focuses on Kubernetes 
       <br />
-      using Terraform / Ansible. Along the way, I've gained experience
+      and automation using Terraform / Ansible.
+      <br />
+      Along the way, I've gained experience
       <br />
       working with various Linux distributions.
       <br />
