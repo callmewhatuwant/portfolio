@@ -58,7 +58,7 @@ const AboutSection = (props) => {
         <span className="bg-white px-1 italic">Nick Georgi</span>
       </h1>
       <motion.p
-        className="text-lg text-gray-600 mt-4"
+        className="text-lg mt-4"
         initial={{
           opacity: 0,
           y: 5,
@@ -72,17 +72,17 @@ const AboutSection = (props) => {
           delay: 1.5,
         }}
       >
-      I'm a system engineer with a passion for frontend
+      I'm a system engineer with a passion for frontend development.
       <br />
-      development. Mainly focused on Kubernetes,
+      My work mainly focuses on Kubernetes, combined with automation 
       <br />
-      along with automation using Terraform and Ansible.
+      using Terraform and Ansible. Along the way, I've gained experience
       <br />
-      Experienced with various Linux distributions.
+      working with various Linux distributions.
       <br />
-      Take a look at the portfolio below ↓
+      Feel free to explore the portfolio below ↓
       <br />
-      New projects coming soon.
+      More projects are coming soon.
       </motion.p>
       <motion.button
         onClick={() => setSection(3)}
