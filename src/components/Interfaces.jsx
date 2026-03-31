@@ -74,9 +74,9 @@ const AboutSection = (props) => {
       >
       I'm a system engineer with a passion for frontend development.
       <br />
-      My work mainly focuses on Kubernetes, combined with automation 
+      My work mainly focuses on Kubernetes and automation 
       <br />
-      using Terraform and Ansible. Along the way, I've gained experience
+      using Terraform / Ansible. Along the way, I've gained experience
       <br />
       working with various Linux distributions.
       <br />
