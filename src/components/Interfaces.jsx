@@ -61,7 +61,7 @@ const AboutSection = (props) => {
         className="text-lg text-gray-600 mt-4"
         initial={{
           opacity: 0,
-          y: 25,
+          y: 5,
         }}
         whileInView={{
           opacity: 1,
@@ -76,6 +76,12 @@ const AboutSection = (props) => {
         <br /> 
         frontend development.
         <br />
+        Mostly working on K8s and 
+        <br />
+        automation with Terrafrom and Ansible
+        <br /> 
+        Administrator of different linux distros.
+        <br />
         Check out my portfolio. ↓
         <br />
         I will update it soon with new projects.
@@ -83,7 +89,7 @@ const AboutSection = (props) => {
       <motion.button
         onClick={() => setSection(3)}
         className={`bg-indigo-600 text-white py-4 px-8 
-      rounded-lg font-bold text-lg mt-4 md:mt-16`}
+      rounded-lg font-bold text-lg mt-4 md:mt-8`}
         initial={{
           opacity: 0,
           y: 25,
@@ -104,21 +110,38 @@ const AboutSection = (props) => {
 };
 
 const skills = [
+
   {
-    title: "Threejs / React Three Fiber",
+    title: "Kubernetes",
     level: 80,
   },
   {
-    title: "React / React Native",
-    level: 90,
+    title: "Terraform",
+    level: 70,
   },
   {
-    title: "Nodejs",
-    level: 90,
-  },
-  {
-    title: "Typescript",
+    title: "Ansible",
     level: 60,
+  },
+  {
+    title: "GO",
+    level: 60,
+  },
+  {
+    title: "Python",
+    level: 50,
+  },
+  {
+    title: "Bash",
+    level: 80,
+  },
+  {
+    title: "Threejs / React Three Fiber",
+    level: 40,
+  },
+  {
+    title: "React / React Native",
+    level: 40,
   },
   {
     title: "3D Modeling",
@@ -133,10 +156,6 @@ const languages = [
   {
     title: "🇺🇸 English",
     level: 80,
-  },
-  {
-    title: "🇪🇸 Spanish",
-    level: 20,
   },
 ];
 
@@ -189,7 +208,7 @@ const SkillsSection = () => {
         </div>
         <div>
           <h2 className="text-3xl md:text-5xl font-bold mt-10 text-white">Languages</h2>
-          <div className=" mt-8 space-y-4">
+          <div className="mt-8 space-y-4">
             {languages.map((lng, index) => (
               <div className="w-full md:w-64" key={index}>
                 <motion.h3
