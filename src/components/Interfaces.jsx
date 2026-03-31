@@ -72,19 +72,17 @@ const AboutSection = (props) => {
           delay: 1.5,
         }}
       >
-        I am a system engineer who also enjoys
-        <br /> 
-        frontend development.
-        <br />
-        Mostly working on K8s and 
-        <br />
-        automation with Terrafrom and Ansible
-        <br /> 
-        Administrator of different linux distros.
-        <br />
-        Check out my portfolio. ↓
-        <br />
-        I will update it soon with new projects.
+      I'm a system engineer with a passion for frontend
+      <br />
+      development. Mainly focused on Kubernetes,
+      <br />
+      along with automation using Terraform and Ansible.
+      <br />
+      Experienced with various Linux distributions.
+      <br />
+      Take a look at the portfolio below ↓
+      <br />
+      New projects coming soon.
       </motion.p>
       <motion.button
         onClick={() => setSection(3)}
