@@ -2,18 +2,12 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Float, MeshDistortMaterial, MeshWobbleMaterial, useScroll } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import { a, useSpring } from "@react-spring/three";
+import * as THREE from "three";
 
 import { Avatar } from "./Avatar";
 import { Projects } from "./Projects";
 import { Office } from "./Office";
 import { Background } from "./Background";
-
-/**
- * React Spring (@react-spring/three) rewrite of the original Framer Motion 3D version.
- * - Replaces <motion.group> with <a.group> and uses useSpring controllers.
- * - Replaces framer-motion motion values & animate() with spring values.
- * - Camera tween for menu open/close is now spring-based (camX, lookX).
- */
 
 export const Experience = (props) => {
   const { menuOpened } = props;
@@ -27,7 +21,8 @@ export const Experience = (props) => {
   const [section, setSection] = useState(0);
   const [characterAnimation, setCharacterAnimation] = useState("Typing");
 
-  // --- Camera springs (menu open/close) ---
+  const smoothSection = useRef(0);
+
   const [{ camX, lookX }, camApi] = useSpring(() => ({
     camX: 0,
     lookX: 0,
@@ -38,9 +33,7 @@ export const Experience = (props) => {
     camApi.start({ camX: menuOpened ? -5 : 0, lookX: menuOpened ? 5 : 0 });
   }, [menuOpened, camApi]);
 
-  // --- Character group springs (depend on section & layout) ---
   const characterTarget = useMemo(() => {
-    // defaults (section 0)
     const base = {
       x: 0,
       y: 0,
@@ -48,9 +41,9 @@ export const Experience = (props) => {
       rx: -Math.PI,
       ry: 1.1073981633974483,
       rz: Math.PI,
-      sx: officeScaleRatio* 1.1,
-      sy: officeScaleRatio* 1.1,
-      sz: officeScaleRatio* 1.1,
+      sx: officeScaleRatio * 1.1,
+      sy: officeScaleRatio * 1.1,
+      sz: officeScaleRatio * 1.1,
     };
 
     if (section === 1) {
@@ -100,28 +93,24 @@ export const Experience = (props) => {
 
   const characterSpring = useSpring({
     ...characterTarget,
-    config: { tension: 140, friction: 22 },
+    config: { tension: 80, friction: 30 },
   });
 
-  // --- Office container subtle Y spring (parity with previous simple animate) ---
   const officeSpring = useSpring({
     oy: isMobile ? -viewport.height / 6 : 0,
     config: { tension: 120, friction: 20 },
   });
 
-  // --- Skills group spring (z/y based on section) ---
   const skillsSpring = useSpring({
     sz: section === 1 ? 0 : -10,
     sy: section === 1 ? -viewport.height : -1.5,
-    config: { tension: 140, friction: 22 },
+    config: { tension: 80, friction: 30 },
   });
 
-  // Character placement helper
   const characterContainerAboutRef = useRef();
   const characterGroup = useRef();
 
   useEffect(() => {
-    // mimic the small animation switch from original
     setCharacterAnimation("Falling");
     const t = setTimeout(() => {
       setCharacterAnimation(section === 0 ? "Typing" : "Standing");
@@ -130,17 +119,25 @@ export const Experience = (props) => {
   }, [section]);
 
   useFrame((state) => {
-    // Update section from scroll
     const pages = Math.max(1, data.pages || 1);
-    let curSection = Math.floor((data.scroll.current || 0) * pages);
+    const scroll = data.scroll.current || 0;
+
+    const target = scroll * pages;
+
+    smoothSection.current = THREE.MathUtils.lerp(
+      smoothSection.current,
+      target,
+      0.1
+    );
+
+    let curSection = Math.floor(smoothSection.current);
     if (curSection > 3) curSection = 3;
+
     if (curSection !== section) setSection(curSection);
 
-    // Camera X + lookAt X springs
     state.camera.position.x = camX.get();
     state.camera.lookAt(lookX.get(), 0, 0);
 
-    // Update character position with world target when section === 0
     if (section === 0 && characterContainerAboutRef.current && characterGroup.current) {
       characterContainerAboutRef.current.getWorldPosition(characterGroup.current.position);
     }
@@ -150,7 +147,6 @@ export const Experience = (props) => {
     <>
       <Background />
 
-      {/* Character */}
       <a.group
         ref={characterGroup}
         position-x={characterSpring.x}
@@ -168,7 +164,6 @@ export const Experience = (props) => {
 
       <ambientLight intensity={1} />
 
-      {/* Office & anchor for character spot */}
       <a.group
         position={[isMobile ? 0 : 1.5 * officeScaleRatio, isMobile ? -viewport.height / 6 : 2, 3]}
         scale={[officeScaleRatio, officeScaleRatio, officeScaleRatio]}
@@ -185,7 +180,6 @@ export const Experience = (props) => {
         />
       </a.group>
 
-      {/* SKILLS */}
       <a.group position-x={0} position-z={skillsSpring.sz} position-y={skillsSpring.sy}>
         <directionalLight position={[-5, 3, 5]} intensity={0.4} />
         <Float>
