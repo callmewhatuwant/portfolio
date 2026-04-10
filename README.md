@@ -3,6 +3,6 @@
 start
 
 ```sh
-yarn
-yarn dev
+npm install 
+npm run dev
 ```
