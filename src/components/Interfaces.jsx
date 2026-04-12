@@ -58,7 +58,7 @@ const AboutSection = (props) => {
         <span className="bg-white px-1 italic">Nick Georgi</span>
       </h1>
       <motion.p
-        className="text-lg mt-4 max-w-md"
+        className="text-lg mt-4 max-w-[350px]"
         initial={{
           opacity: 0,
           y: 5,
