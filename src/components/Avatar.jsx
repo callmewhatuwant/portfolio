@@ -28,8 +28,10 @@ export function Avatar(props) {
   standingAnimation[0].name = "Standing";
   fallingAnimation[0].name = "Falling";
 
+  const clips = useRef([typingAnimation[0], standingAnimation[0], fallingAnimation[0]])
+
   const { actions } = useAnimations(
-    [typingAnimation[0], standingAnimation[0], fallingAnimation[0]],
+    clips.current,
     group
   );
 
