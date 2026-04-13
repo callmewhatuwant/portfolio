@@ -166,7 +166,7 @@ export const Experience = (props) => {
         <Avatar animation={characterAnimation} wireframe={section === 1} />
       </a.group>
 
-      <ambientLight intensity={1} />
+      <ambientLight intensity={3} />
 
       {/* Office & anchor for character spot */}
       <a.group

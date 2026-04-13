@@ -16,7 +16,8 @@ export function Office(props) {
   const textureVSCode = useVideoTexture("textures/vscode.mp4");
 
   texture.flipY = false;
-  texture.encoding = THREE.sRGBEncoding;
+  texture.colorSpace = THREE.SRGBColorSpace;
+  //texture.encoding = THREE.sRGBEncoding;
 
   const textureMaterial = new THREE.MeshStandardMaterial({
     map: texture,
